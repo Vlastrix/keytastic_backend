@@ -1,6 +1,7 @@
 require('dotenv').config();
 const mongoose = require("mongoose");
 const express = require("express");
+const bcrypt = require('bcrypt');
 const app = express();
 
 const port = process.env.PORT || 3000;
@@ -28,12 +29,12 @@ const User = mongoose.model("User", usersSchema);
 //     fav_keyboards: ['id of the keyboards marked favorite'],
 // });
 
-app.get("/singup", function(req, res) {
-    res.send("Halo");
+app.post("/singup", function(req, res) {
+    res.send("Sign Up service");
 });
 
-app.get("/singin", function(req, res) {
-    res.send("Halo");
+app.post("/singin", function(req, res) {
+    res.send("Sing In service");
 });
 
 
