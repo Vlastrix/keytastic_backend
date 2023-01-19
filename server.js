@@ -2,22 +2,29 @@ const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 
 // Database connection
 const mongoDBUrl = process.env.MONGODBURL;
 mongoose.connect(mongoDBUrl);
 
-// Items Schema
-const itemsSchema = new mongoose.Schema({
-    name: String,
+// User Schema
+const usersSchema = new mongoose.Schema({
+    f_name: String,
+    email: String,
+    password: String,
+    fav_keyboards: [],
 });
 
-const Item = mongoose.model("Item", itemsSchema);
+const User = mongoose.model("User", usersSchema);
 
-const item1 = new Item({
-    name: "Welcome to your To Do List!"
-});
+// Example
+// const user1 = new User({
+//     f_name: 'Vlad',
+//     email: 'vladitrolo23@hotmail.com',
+//     password: 'a hash to store in the db',
+//     fav_keyboards: ['id of the keyboards marked favorite'],
+// });
 
 app.get("/singin", function(req, res) {
     res.send("Halo");
