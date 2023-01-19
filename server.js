@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
@@ -6,6 +7,7 @@ const port = process.env.PORT || 3000;
 
 // Database connection
 const mongoDBUrl = process.env.MONGODBURL;
+mongoose.set('strictQuery', false);
 mongoose.connect(mongoDBUrl);
 
 // User Schema
@@ -26,13 +28,14 @@ const User = mongoose.model("User", usersSchema);
 //     fav_keyboards: ['id of the keyboards marked favorite'],
 // });
 
+app.get("/singup", function(req, res) {
+    res.send("Halo");
+});
+
 app.get("/singin", function(req, res) {
     res.send("Halo");
 });
 
-app.get("/singup", function(req, res) {
-    res.send("Halo");
-});
 
 app.listen(port, function() {
     console.log("Server started succesfully on port " + port);
