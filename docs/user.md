@@ -15,5 +15,5 @@ classDiagram
 * String f_name: User first name.
 * String email: User email.
 * String password: User hashed password.
- * List<String> idFavKeyboards: A list composed of keyboards class unique ids.
+* List<String> idFavKeyboards: A list composed of keyboards class unique ids.
 
