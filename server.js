@@ -1,8 +1,11 @@
 require('dotenv').config();
 const mongoose = require("mongoose");
 const express = require("express");
+const bodyParser = require("body-parser");
 const bcrypt = require('bcrypt');
 const app = express();
+
+app.use(bodyParser.urlencoded({extended: true}));
 
 const port = process.env.PORT || 3000;
 const saltRounds = 10;
@@ -17,7 +20,7 @@ const usersSchema = new mongoose.Schema({
     f_name: String,
     email: String,
     password: String,
-    fav_keyboards: [],
+    fav_keyboards: Array,
 });
 
 //Keyboard Schema
@@ -41,19 +44,41 @@ const keyboardsSchema = new mongoose.Schema({
 
 
 const User = mongoose.model("User", usersSchema);
-const Keyboard = mongoose.model("Keyboard", keyboardsSchema)
-
+const Keyboard = mongoose.model("Keyboard", keyboardsSchema);
 
 app.post("/singup", function(req, res) {
-    
-    bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
-        // Store hash in your password DB.
+    bcrypt.hash(req.body.password, saltRounds, function(err, hashedPass) {
+        const newUser = new User({
+            f_name: req.body.f_name,
+            email: req.body.email,
+            password: hashedPass,
+            fav_keyboards: req.body.fav_keyboards,
+        });
+        newUser.save(function() {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send("Sign Up success!");
+            }
+        });
     });
-    res.send("Sign Up service");
 });
 
 app.post("/singin", function(req, res) {
-    res.send("Sing In service");
+    const email = req.body.email;
+    const password = req.body.password;
+    User.findOne({email: email}, function(err, foundUser){
+        if (err) {
+            console.log(err)
+        } else {
+            bcrypt.compare(password, foundUser.password, function(err, result) {
+                if (result === true) {
+                    res.send("Sing In success!");
+                }
+            });
+        }
+    });
+
 });
 
 
