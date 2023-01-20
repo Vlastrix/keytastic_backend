@@ -26,8 +26,8 @@ const usersSchema = new mongoose.Schema({
 //Keyboard Schema
 const keyboardsSchema = new mongoose.Schema({
     name: String,
-    markedFav: int,
-    views: int,
+    markedFav: Number,
+    views: Number,
     brand: String,
     comp_devices: Array,
     conn_tech: String,
