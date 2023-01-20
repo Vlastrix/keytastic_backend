@@ -20,15 +20,29 @@ const usersSchema = new mongoose.Schema({
     fav_keyboards: [],
 });
 
-const User = mongoose.model("User", usersSchema);
+//Keyboard Schema
+const keyboardsSchema = new mongoose.Schema({
+    name: String,
+    markedFav: int,
+    views: int,
+    brand: String,
+    comp_devices: Array,
+    conn_tech: String,
+    size: String,
+    layout: String,
+    backlight: String,
+    backlight_direction: String,
+    colors: Array,
+    material: String,
+    switch_type: String,
+    switch_name: String,
+    keycap_type: String,
+});
 
-// Example
-// const user1 = new User({
-//     f_name: 'Vlad',
-//     email: 'vladitrolo23@hotmail.com',
-//     password: 'a hash to store in the db',
-//     fav_keyboards: ['id of the keyboards marked favorite'],
-// });
+
+const User = mongoose.model("User", usersSchema);
+const Keyboard = mongoose.model("Keyboard", keyboardsSchema)
+
 
 app.post("/singup", function(req, res) {
     

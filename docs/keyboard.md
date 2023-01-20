@@ -6,7 +6,7 @@ classDiagram
         +int markedFav
         +int views
         +String brand
-        +String comp_devices
+        +List comp_devices
         +String conn_tech 
         +String build_type
         +String size
@@ -27,7 +27,7 @@ classDiagram
 * int markedFav: Integer that represents the number of times that the keyboard got marked as favorite by the users.
 * int views: Integer that represents the number of times the keyboard was viewed by the users.
 * String brand: Brand of the keyboard, example 'Redragon'.
-* String comp_devices: Specifies the compatible devices for the keyboard, the values can be 'PC' or 'MacOS'.
+* String comp_devices: A list that specifies the compatible devices for the keyboard, the values can be 'PC' or 'MacOS'.
 * String conn_tech: Specifies the connection technology of the keyboard, the values can be 'wired' or 'wireless'.
 * String build_type: Specifies if the keyboard is fully built or if it is barebones, the values can be 'Prebuilt' or 'Barebones'.
 * String size: Specifies the keyboard size, the values can be 'Full Size', 'TKL', '75%', '60%' and etc.
