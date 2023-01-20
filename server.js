@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const app = express();
 
 const port = process.env.PORT || 3000;
+const saltRounds = 10;
 
 // Database connection
 const mongoDBUrl = process.env.MONGODBURL;
@@ -30,6 +31,10 @@ const User = mongoose.model("User", usersSchema);
 // });
 
 app.post("/singup", function(req, res) {
+    
+    bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
+        // Store hash in your password DB.
+    });
     res.send("Sign Up service");
 });
 
