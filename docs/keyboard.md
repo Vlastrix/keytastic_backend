@@ -12,6 +12,7 @@ classDiagram
         +String size
         +String layout
         +String backlight
+        +String backlight_direction
         +Array colors
         +String material
         +String switch_type
@@ -26,14 +27,15 @@ classDiagram
 * int markedFav: Integer that represents the number of times that the keyboard got marked as favorite by the users.
 * int views: Integer that represents the number of times the keyboard was viewed by the users.
 * String brand: Brand of the keyboard, example 'Redragon'.
-* String comp_devices: Specifies the compatible devices for the keyboard, the values can be 'PC' or 'MacOS'
-* String conn_tech: Specifies the connection technology of the keyboard, the values can be 'wired' or 'wireless'
-* String build_type: Specifies if the keyboard is fully built or if it is barebones, the values can be 'Prebuilt' or 'Barebones'
-* String size
-* String layout
-* String backlight:
-* Array colors:
-* String material:
-* String switch_type:
-* String switch_name:
-* String keycap_type:
+* String comp_devices: Specifies the compatible devices for the keyboard, the values can be 'PC' or 'MacOS'.
+* String conn_tech: Specifies the connection technology of the keyboard, the values can be 'wired' or 'wireless'.
+* String build_type: Specifies if the keyboard is fully built or if it is barebones, the values can be 'Prebuilt' or 'Barebones'.
+* String size: Specifies the keyboard size, the values can be 'Full Size', 'TKL', '75%', '60%' and etc.
+* String layout: Specifies the keyboard layout, the values can be 'ISO' or 'ANSI'.
+* String backlight: Specifies the keyboard backlight, the values can be 'None', 'White', 'Single Color' or 'RGB'.
+* String backlight_direction: Specifies the keyboard backlight direction, the values can be 'north-facing' or 'south-facing'.
+* Array colors: Specifies the keyboard color of the chasis.
+* String material: Specifies the keyboard material type, tha values can be 'Metal' or 'Plastic'
+* String switch_type: Specifies the switch type of the keyboard if it is prebuilt, the values can be 'Linear', 'Tactile' or 'Clicky'
+* String switch_name: Specifies the name of the switch if the keyboard is prebuilt.
+* String keycap_type: Specifies the keycap type if the keyboard is prebuilt, the values can be 'ABS', 'PBT', 'Double shot ABS' or 'Double shot PBT'.
