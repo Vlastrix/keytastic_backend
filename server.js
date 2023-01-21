@@ -42,16 +42,15 @@ const keyboardsSchema = new mongoose.Schema({
     keycap_type: String,
 });
 
-
 const User = mongoose.model("User", usersSchema);
 const Keyboard = mongoose.model("Keyboard", keyboardsSchema);
 
 app.post("/signup", function(req, res) {
-    bcrypt.hash(req.body.password, saltRounds, function(err, hashedPass) {
+    bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
         const newUser = new User({
             f_name: req.body.f_name,
             email: req.body.email,
-            password: hashedPass,
+            password: hash,
             fav_keyboards: req.body.fav_keyboards,
         });
         newUser.save(function() {
