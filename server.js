@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 
 const port = process.env.PORT || 3000;
-const saltRounds = 10;
+const saltRounds = 1;
 
 // Database connection
 const mongoDBUrl = process.env.MONGODBURL;
@@ -58,6 +58,7 @@ app.post("/signup", function(req, res) {
             if (err) {
                 console.log(err);
             } else {
+                console.log("User added successfully");
                 res.send("Sign Up success!");
             }
         });
