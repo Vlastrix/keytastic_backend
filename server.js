@@ -46,7 +46,7 @@ const keyboardsSchema = new mongoose.Schema({
 const User = mongoose.model("User", usersSchema);
 const Keyboard = mongoose.model("Keyboard", keyboardsSchema);
 
-app.post("/singup", function(req, res) {
+app.post("/signup", function(req, res) {
     bcrypt.hash(req.body.password, saltRounds, function(err, hashedPass) {
         const newUser = new User({
             f_name: req.body.f_name,
@@ -64,7 +64,7 @@ app.post("/singup", function(req, res) {
     });
 });
 
-app.post("/singin", function(req, res) {
+app.post("/signin", function(req, res) {
     const email = req.body.email;
     const password = req.body.password;
     User.findOne({email: email}, function(err, foundUser){
