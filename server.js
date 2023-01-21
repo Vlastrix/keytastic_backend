@@ -46,10 +46,6 @@ const User = mongoose.model("User", usersSchema);
 const Keyboard = mongoose.model("Keyboard", keyboardsSchema);
 
 app.post("/signup", function(req, res) {
-    console.log(req.body.f_name);
-    console.log(req.body.email);
-    console.log(req.body.password);
-    console.log(req.body.fav_keyboards);
     bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
         const newUser = new User({
             f_name: req.body.f_name,
@@ -61,7 +57,6 @@ app.post("/signup", function(req, res) {
             if (err) {
                 console.log(err);
             } else {
-                console.log("User added successfully");
                 res.send("Sign Up success!");
             }
         });
