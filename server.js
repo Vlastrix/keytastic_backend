@@ -4,6 +4,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const bcrypt = require('bcrypt');
 const app = express();
+const {User} = require('./models/user.js')
+const {Keyboard} = require('./models/keyboard.js')
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -15,36 +18,6 @@ const mongoDBUrl = process.env.MONGODBURL;
 mongoose.set('strictQuery', false);
 mongoose.connect(mongoDBUrl);
 
-// User Schema
-const usersSchema = new mongoose.Schema({
-    username: String,
-    email: String,
-    password: String,
-    favoriteKeyboards: Array,
-});
-
-//Keyboard Schema
-const keyboardsSchema = new mongoose.Schema({
-    name: String,
-    markedFavoriteCount: Number,
-    viewsCount: Number,
-    brandName: String,
-    compatibleDevices: Array,
-    connectionTechnology: String,
-    buildType: String,
-    size: String,
-    layout: String,
-    backlight: String,
-    backlightDirection: String,
-    availableChasisColors: Array,
-    material: String,
-    switchType: String,
-    switchName: String,
-    keycapType: String,
-});
-
-const User = mongoose.model("User", usersSchema);
-const Keyboard = mongoose.model("Keyboard", keyboardsSchema);
 
 app.post("/signup", function(req, res) {
     bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
