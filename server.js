@@ -14,7 +14,7 @@ mongoose.set('strictQuery', false);
 mongoose.connect(mongoDBUrl);
 
 
-app.use('/', require('./routes/signUpIn'));
+app.use('/', require('./routes/router'));
 
 app.listen(PORT, function() {
     console.log("Server started succesfully on port " + PORT);
