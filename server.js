@@ -17,10 +17,10 @@ mongoose.connect(mongoDBUrl);
 
 // User Schema
 const usersSchema = new mongoose.Schema({
-    f_name: String,
+    username: String,
     email: String,
     password: String,
-    fav_keyboards: Array,
+    favoriteKeyboards: Array,
 });
 
 //Keyboard Schema
@@ -48,10 +48,10 @@ const Keyboard = mongoose.model("Keyboard", keyboardsSchema);
 app.post("/signup", function(req, res) {
     bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
         const newUser = new User({
-            f_name: req.body.f_name,
+            username: req.body.f_name,
             email: req.body.email,
             password: hash,
-            fav_keyboards: req.body.fav_keyboards,
+            favoriteKeyboards: req.body.fav_keyboards,
         });
         newUser.save(function() {
             if (err) {
