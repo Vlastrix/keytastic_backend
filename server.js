@@ -48,10 +48,10 @@ const Keyboard = mongoose.model("Keyboard", keyboardsSchema);
 app.post("/signup", function(req, res) {
     bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
         const newUser = new User({
-            username: req.body.f_name,
+            username: req.body.useranme,
             email: req.body.email,
             password: hash,
-            favoriteKeyboards: req.body.fav_keyboards,
+            favoriteKeyboards: req.body.favoriteKeyboards,
         });
         newUser.save(function() {
             if (err) {
