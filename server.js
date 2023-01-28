@@ -13,7 +13,6 @@ const mongoDBUrl = process.env.MONGODBURL;
 mongoose.set('strictQuery', false);
 mongoose.connect(mongoDBUrl);
 
-
 app.use('/', require('./routes/router'));
 
 app.listen(PORT, function() {
