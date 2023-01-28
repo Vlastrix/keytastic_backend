@@ -26,20 +26,21 @@ const usersSchema = new mongoose.Schema({
 //Keyboard Schema
 const keyboardsSchema = new mongoose.Schema({
     name: String,
-    markedFav: Number,
-    views: Number,
-    brand: String,
-    comp_devices: Array,
-    conn_tech: String,
+    markedFavoriteCount: Number,
+    viewsCount: Number,
+    brandName: String,
+    compatibleDevices: Array,
+    connectionTechnology: String,
+    buildType: String,
     size: String,
     layout: String,
     backlight: String,
-    backlight_direction: String,
-    colors: Array,
+    backlightDirection: String,
+    availableChasisColors: Array,
     material: String,
-    switch_type: String,
-    switch_name: String,
-    keycap_type: String,
+    switchType: String,
+    switchName: String,
+    keycapType: String,
 });
 
 const User = mongoose.model("User", usersSchema);
