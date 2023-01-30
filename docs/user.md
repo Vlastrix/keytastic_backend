@@ -1,4 +1,4 @@
-# User class
+# User model
 ```mermaid
 classDiagram
     class User {
