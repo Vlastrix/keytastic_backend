@@ -13,7 +13,7 @@ const mongoDBUrl = process.env.MONGODBURL;
 mongoose.set('strictQuery', false);
 mongoose.connect(mongoDBUrl);
 
-app.use('/', require('./routes/router'));
+app.use('/', require('./router'));
 
 app.listen(PORT, function() {
     console.log("Server started succesfully on port " + PORT);
