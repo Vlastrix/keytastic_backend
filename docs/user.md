@@ -7,6 +7,7 @@ classDiagram
         +String email
         +String password
         +List<String> favoriteKeyboards
+        +Boolean isActive
     }
 ```
 
@@ -16,4 +17,5 @@ classDiagram
 * String email: User email.
 * String password: User hashed password.
 * List<String> favoriteKeyboards: A list composed of keyboards class unique ids.
+* Boolean isActive: Defines if the user is able to log in.
 
