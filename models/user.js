@@ -5,6 +5,7 @@ const usersSchema = new mongoose.Schema({
     email: String,
     password: String,
     favoriteKeyboards: Array,
+    isActive: Boolean
 });
 
 const User = mongoose.model("User", usersSchema);
