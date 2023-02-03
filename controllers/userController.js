@@ -53,8 +53,6 @@ const signIn = (req, res) => {
     } catch (error) {
         error500();
     }
-
-
 }
 
 module.exports =  {
