@@ -4,8 +4,8 @@ const usersSchema = new mongoose.Schema({
     username: String,
     email: String,
     password: String,
-    favoriteKeyboards: Array,
-    isActive: Boolean
+    favoriteKeyboards: [String],
+    isActive: Boolean,
 });
 
 const User = mongoose.model("User", usersSchema);

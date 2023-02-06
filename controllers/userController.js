@@ -21,7 +21,7 @@ const signUp = (req, res) => {
                             username: req.body.username,
                             email: req.body.email,
                             password: hash,
-                            favoriteKeyboards: req.body.favoriteKeyboards,
+                            favoriteKeyboards: [],
                             isActive: true,
                         });
                         newUser.save(function() {

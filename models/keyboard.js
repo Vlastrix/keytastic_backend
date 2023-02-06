@@ -12,7 +12,7 @@ const keyboardsSchema = new mongoose.Schema({
     layout: String,
     backlight: String,
     backlightDirection: String,
-    availableChasisColors: Array,
+    availableChasisColors: [String],
     material: String,
     switchType: String,
     switchName: String,
