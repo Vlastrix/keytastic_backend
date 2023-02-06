@@ -15,7 +15,7 @@ const signUp = (req, res) => {
                     res.status(500).send("Something went wrong...");
                 } else {
                     if (searchResult != null) {
-                        res.status(400).send("This email is already registered.");
+                        res.status(400).send("This email is already registered. Please enter another email.");
                     } else {
                         const newUser = new User({
                             username: req.body.username,
@@ -44,7 +44,7 @@ const signIn = (req, res) => {
             console.log(mongooseError);
             res.status(500).send("Something went wrong...");
         } else if (foundUser === null) {
-            res.status(404).send("This user does not exist.");
+            res.status(404).send("This user does not exist. Please register.");
         } else if (foundUser.isActive === false) {
             res.status(403).send("This user is innactive.");
         } else {
