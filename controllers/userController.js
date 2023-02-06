@@ -9,16 +9,29 @@ const signUp = (req, res) => {
             console.log(bcryptError);
             res.status(500).send("Something went wrong...");
         } else {
-            const newUser = new User({
-                username: req.body.username,
-                email: req.body.email,
-                password: hash,
-                favoriteKeyboards: req.body.favoriteKeyboards,
-                isActive: true,
+            User.exists({email: req.body.email}, function (searchError, searchResult) {
+                if (searchError) {
+                    console.log(searchError);
+                    res.status(500).send("Something went wrong...");
+                } else {
+                    if (searchResult != null) {
+                        res.status(400).send("This email is already registered.");
+                    } else {
+                        const newUser = new User({
+                            username: req.body.username,
+                            email: req.body.email,
+                            password: hash,
+                            favoriteKeyboards: req.body.favoriteKeyboards,
+                            isActive: true,
+                        });
+                        newUser.save(function() {
+                            res.status(201).send("Sing Up success!");
+                        });
+                    }
+                }
             });
-            newUser.save(function() {
-                res.status(200).send("Sing Up success!");
-            });
+
+
         }
     });
 }
