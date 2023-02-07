@@ -16,6 +16,6 @@ classDiagram
 * String username: Users username.
 * String email: User email.
 * String password: User hashed password.
-* List<String> favoriteKeyboards: A list composed of keyboards class unique ids.
+* Array favoriteKeyboards: A list composed of keyboards class unique ids.
 * Boolean isActive: Defines if the user is able to log in.
 
