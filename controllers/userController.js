@@ -44,7 +44,7 @@ const signIn = (req, res) => {
             console.log(mongooseError);
             res.status(500).send("Something went wrong...");
         } else if (foundUser === null) {
-            res.status(404).send("This user does not exist. Please register.");
+            res.status(404).send("This user does not exist. Please Sign Up.");
         } else if (foundUser.isActive === false) {
             res.status(403).send("This user is innactive.");
         } else {
