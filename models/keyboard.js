@@ -5,7 +5,7 @@ const keyboardsSchema = new mongoose.Schema({
     markedFavoriteCount: Number,
     viewsCount: Number,
     brandName: String,
-    compatibleDevices: Array,
+    compatibleDevices: [String],
     connectionTechnology: String,
     buildType: String,
     size: String,

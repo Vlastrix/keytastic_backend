@@ -7,14 +7,14 @@ classDiagram
         +int markedFavoriteCount
         +int viewsCount
         +String brandName
-        +List compatibleDevices
+        +Array<String> compatibleDevices
         +String connectionTechnology
         +String buildType
         +String size
         +String layout
         +String backlight
         +String backlightDirection
-        +Array availableChasisColors
+        +Array<String> availableChasisColors
         +String material
         +String switchType
         +String switchName

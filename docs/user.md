@@ -6,7 +6,7 @@ classDiagram
         +String username
         +String email
         +String password
-        +List<String> favoriteKeyboards
+        +Array<String> favoriteKeyboards
         +Boolean isActive
     }
 ```
