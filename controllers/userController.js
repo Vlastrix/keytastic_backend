@@ -65,7 +65,23 @@ const signIn = (req, res) => {
     });
 }
 
+const verifyToken = (req, res) => {
+    const receivedToken = req.body.token;
+    jwt.verify(receivedToken, process.env.JWT_SECRET, function(jsonWebTokenError, decoded) {
+        if (jsonWebTokenError) {
+            console.log(jsonWebTokenError);
+            if (jsonWebTokenError.name === "TokenExpiredError") {
+                res.status(200).send("Token expired!");
+            }
+            res.status(500).send("Something went wrong...");
+        } else {
+            res.status(200).send("Token validated!");
+        }
+    });
+}
+
 module.exports =  {
     signUp,
-    signIn
+    signIn,
+    verifyToken,
 };
