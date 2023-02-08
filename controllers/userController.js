@@ -71,7 +71,7 @@ const verifyToken = (req, res) => {
         if (jsonWebTokenError) {
             console.log(jsonWebTokenError);
             if (jsonWebTokenError.name === "TokenExpiredError") {
-                res.status(200).send("Token expired!");
+                res.status(200).send("Token expired.");
             }
             res.status(500).send("Something went wrong...");
         } else {
