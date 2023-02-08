@@ -1,4 +1,6 @@
+require('dotenv').config();
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const {User} = require('../models/user.js')
 
 const saltRounds = 1;
@@ -24,9 +26,9 @@ const signUp = (req, res) => {
                             favoriteKeyboards: [],
                             isActive: true,
                         });
-                        newUser.save(function() {
-                            res.status(201).send("Sing Up success!");
-                        });
+                        newUser.save();
+                        var jsonWebToken = jwt.sign({ user: newUser._id }, process.env.JWT_SECRET, {expiresIn: '24h'});
+                        res.status(201).json({token: jsonWebToken});
                     }
                 }
             });
@@ -53,7 +55,8 @@ const signIn = (req, res) => {
                     console.log(bcryptError);
                     res.status(500).send("Something went wrong...");
                 } else if (result === true) {
-                    res.status(200).send("Sing In success!");
+                    var jsonWebToken = jwt.sign({ user: foundUser._id }, process.env.JWT_SECRET, {expiresIn: '24h'});
+                    res.status(200).json({token: jsonWebToken});
                 } else {
                     res.status(400).send("Email or Password is incorrect.");
                 }
