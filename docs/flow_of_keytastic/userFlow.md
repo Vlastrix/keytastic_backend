@@ -13,6 +13,8 @@ graph LR
     I --> B[Share]
     D --> J[Favorites \n screen]
     J --> K[View keyboards \n marked as favorite]
+    I --> X[Browse images for \n the keyboard]
+    K --> I
     D --> P[Profile \n Screen]
     P --> R[Change \n Username]
     P --> S[Change \n Email]
@@ -34,5 +36,5 @@ A user can view and read. The user dosen't modify the content of the app, he can
 * Send feedback to the developers about the app.
 * Press the "Find On" button.
 
-### What is the "Find On" button?
+### What is the "Find it On" button?
 This button appears in the description view of the keyboard, it leads to a e-commerce website where you can buy the keyboard you selected.
