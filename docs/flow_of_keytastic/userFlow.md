@@ -21,7 +21,7 @@ graph LR
 ```
 
 ## User Flow documentation
-A user can view and read. The user dosen't modify the content of the app, he can only interact with it like adding comments, sharing the keyboard or marking the keyboard as favorite.
+A user can view and read. The user dosen't modify the content of the app, he can only interact with it.
 
 ### What a user can do?
 * Post comments on a keyboard.
