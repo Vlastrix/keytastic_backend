@@ -58,11 +58,11 @@ In this screen the user can browse keyboards by selecting tags or by writing a k
 ### What is "Favorites screen"?
 In this screen appears all the keyboard that the user marked as favorite by pressing the heart button in "Description view" of the keyboard.
 
-### What is the "Description view" of the keyboard?
-In this screen the user can see all of the details and features of a keyboard. Here the user can mark the keyboard as favorite, share it, browse images or post a comment.
-
 ### What is the "Profile screen"?
 In this screen the user can change his username and email. He can also choose to Sign Out or to send feedback about the app to the developers.
+
+### What is the "Description view" of the keyboard?
+In this screen the user can see all of the details and features of a keyboard. Here the user can mark the keyboard as favorite, share it, browse images or post a comment.
 
 ### What is the "Find it On" button?
 This button appears in the description view of the keyboard, it leads to a e-commerce website where you can buy the keyboard you selected.
