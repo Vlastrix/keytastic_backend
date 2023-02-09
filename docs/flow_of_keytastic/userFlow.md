@@ -19,7 +19,7 @@ graph LR
     D --> P[Profile \n Screen]
     P --> Q(Sign Out)
     P --> T(Send \n Feedback)
-    P --> R(Change \n Email/Username)
+    P --> R(Change \n Email/Username/Password)
 ```
 
 ## User Flow documentation
@@ -59,7 +59,7 @@ In this screen the user can browse keyboards by selecting tags or by writing a k
 In this screen appears all the keyboard that the user marked as favorite by pressing the heart button in "Description view" of the keyboard.
 
 ### What is the "Profile screen"?
-In this screen the user can change his username and email. He can also choose to Sign Out or to send feedback about the app to the developers.
+In this screen the user can change his username, email and password. He can also choose to Sign Out or to send feedback about the app to the developers.
 
 ### What is the "Description view" of the keyboard?
 In this screen the user can see all of the details and features of a keyboard. Here the user can mark the keyboard as favorite, share it, browse images or post a comment.
