@@ -8,7 +8,7 @@ graph LR
     E -->|Forgot Password| Y(Password Recovery)
     Y -->|Password Recovered| E
     E --> D
-    D --> Z(New keyboard \n screen)
+    D --> Z[New keyboard \n screen]
     Z -->|Create a new \n keyboard| W(Keyboard validated \n by adminstrators)
     D --> H[Search screen]
     H --> I[Description view \n of the keyboard]
