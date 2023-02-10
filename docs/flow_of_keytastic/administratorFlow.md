@@ -28,3 +28,12 @@ Administrators manage the application and can ban users for unethical activities
 * Ban users (make them inactive).
 * Validate keyboards sent by users (add them to the app).
 * Add a new keyboard to the app.
+
+### What are inactive users?
+It means users that have violated the rules of the app and therefore were banned.
+
+### How do administrators add or validate keyboards?
+Administrators open the "New Keyboard" screen in which they can add new keyboards and validate keyboards that were sent by the users.
+
+### What is validation in keyboards?
+In the internet there is a lot technical errors regarding mechanical keyboards, those need to be erradicated by doing extra reseach and watching reviews about the keyboards so that the information is correct. A keyboard is only validated when you are sure that you have specified the right data.
