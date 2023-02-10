@@ -1,4 +1,5 @@
 # User Flow
+
 ```mermaid
 graph LR
     C{is Authenticated?}
@@ -7,6 +8,8 @@ graph LR
     E -->|Forgot Password| Y(Password Recovery)
     Y -->|Password Recovered| E
     E --> D
+    D --> Z(New keyboard \n screen)
+    Z -->|Create a new \n keyboard| W(Keyboard validated \n by adminstrators)
     D --> H[Search screen]
     H --> I[Description view \n of the keyboard]
     I --> F(Find it On \n button)
@@ -23,7 +26,7 @@ graph LR
 ```
 
 ## User Flow documentation
-A user can view and read. The user dosen't modify the content of the app, he can only interact with it.
+Everytime a new account is created it starts with the role of "user". A user can view the available keyboards in the app and add a new keyboard for validation by the administrators. 
 
 ### What a user can do?
 * Post comments on a keyboard.
@@ -32,6 +35,7 @@ A user can view and read. The user dosen't modify the content of the app, he can
 * Browse images of the keyboard
 * Search a keyboard by tags.
 * Search a keyboard by name.
+* Add a new keyboard for validation.
 * Change his username.
 * Change his email.
 * Change his password.
@@ -60,6 +64,9 @@ In this screen appears all the keyboard that the user marked as favorite by pres
 
 ### What is the "Profile screen"?
 In this screen the user can change his username, email and password. He can also choose to Sign Out or to send feedback about the app to the developers.
+
+### What is the "New Keyboard" screen?
+In this screen users can add a new keyboard for validation, the user needs to specify the images, technical detais, features and where you can find it to buy it. These new keyboards can be modified or corrected by the administrators and then added to the database of the app. 
 
 ### What is the "Description view" of the keyboard?
 In this screen the user can see all of the details and features of a keyboard. Here the user can mark the keyboard as favorite, share it, browse images or post a comment.

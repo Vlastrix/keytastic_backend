@@ -4,6 +4,7 @@ const usersSchema = new mongoose.Schema({
     username: String,
     email: String,
     password: String,
+    role: String,
     favoriteKeyboards: [String],
     isActive: Boolean,
 });

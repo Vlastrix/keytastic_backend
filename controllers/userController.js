@@ -23,6 +23,7 @@ const signUp = (req, res) => {
                             username: req.body.username,
                             email: req.body.email,
                             password: hash,
+                            role: "user",
                             favoriteKeyboards: [],
                             isActive: true,
                         });
