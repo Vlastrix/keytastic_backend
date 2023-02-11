@@ -5,37 +5,48 @@ const {User} = require('../models/user.js')
 
 const saltRounds = 1;
 
+function checkForError(err, res) {
+    if (err) {
+        console.log(err);
+        res.status(500).send("Something went wrong...");
+        return true;
+    }
+    return false;
+}
+
+function checkIfAlreadyExists(foundUser, res) {
+    if (foundUser != null) {
+        res.status(400).send("This email is already registered. Please enter another email.");
+        return true;
+    }
+    return false;
+}
+
+function createUser(username, email, hashedPassword, res) {
+    const newUser = new User({
+        username: username,
+        email: email,
+        password: hashedPassword,
+        role: "user",
+        favoriteKeyboards: [],
+        isActive: true,
+    });
+    newUser.save();
+    var jsonWebToken = jwt.sign({ user: newUser._id }, process.env.JWT_SECRET, {expiresIn: '24h'});
+    res.status(201).json({token: jsonWebToken});
+}
+
 const signUp = (req, res) => {
-    bcrypt.hash(req.body.password, saltRounds, function(bcryptError, hash) {
-        if (bcryptError) {
-            console.log(bcryptError);
-            res.status(500).send("Something went wrong...");
-        } else {
-            User.exists({email: req.body.email}, function (searchError, searchResult) {
-                if (searchError) {
-                    console.log(searchError);
-                    res.status(500).send("Something went wrong...");
-                } else {
-                    if (searchResult != null) {
-                        res.status(400).send("This email is already registered. Please enter another email.");
-                    } else {
-                        const newUser = new User({
-                            username: req.body.username,
-                            email: req.body.email,
-                            password: hash,
-                            role: "user",
-                            favoriteKeyboards: [],
-                            isActive: true,
-                        });
-                        newUser.save();
-                        var jsonWebToken = jwt.sign({ user: newUser._id }, process.env.JWT_SECRET, {expiresIn: '24h'});
-                        res.status(201).json({token: jsonWebToken});
-                    }
-                }
-            });
-
-
-        }
+    const username = req.body.username;
+    const email = req.body.email;
+    const password = req.body.password;
+    bcrypt.hash(password, saltRounds, function(bcryptError, hashedPassword) {
+        if (checkForError(bcryptError, res)) return res.end()
+        User.exists({email: req.body.email}, function (searchError, foundUser) {
+            if (checkForError(searchError, res)) return res.end()
+            if (checkIfAlreadyExists(foundUser, res)) return res.end();
+            createUser(username, email, hashedPassword ,res);
+        });
     });
 }
 
@@ -43,9 +54,9 @@ const signIn = (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
     User.findOne({email: email}, function(mongooseError, foundUser){
+        if (checkForError(mongooseError, res)) return res.end()
         if (mongooseError) {
             console.log(mongooseError);
-            res.status(500).send("Something went wrong...");
         } else if (foundUser === null) {
             res.status(404).send("This user does not exist. Please Sign Up.");
         } else if (foundUser.isActive === false) {
@@ -54,7 +65,6 @@ const signIn = (req, res) => {
             bcrypt.compare(password, foundUser.password, function(bcryptError, result) {
                 if (bcryptError) {
                     console.log(bcryptError);
-                    res.status(500).send("Something went wrong...");
                 } else if (result === true) {
                     var jsonWebToken = jwt.sign({ user: foundUser._id }, process.env.JWT_SECRET, {expiresIn: '24h'});
                     res.status(200).json({token: jsonWebToken});
@@ -74,7 +84,7 @@ const verifyToken = (req, res) => {
             if (jsonWebTokenError.name === "TokenExpiredError") {
                 res.status(200).send("Token expired.");
             }
-            res.status(500).send("Something went wrong...");
+            // Add something went wrong
         } else {
             res.status(200).send("Token validated!");
         }
