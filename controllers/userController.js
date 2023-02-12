@@ -64,11 +64,10 @@ const verifyToken = (req, res) => {
         if (jsonWebTokenError && jsonWebTokenError.name != "TokenExpiredError") return res.end();
         if (jsonWebTokenError.name === "TokenExpiredError") return res.status(200).send("Token expired.");
         res.status(200).send("Token validated!");
-
     });
 }
 
-module.exports =  {
+module.exports = {
     signUp,
     signIn,
     verifyToken,
