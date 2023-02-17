@@ -53,7 +53,7 @@ const signIn = (req, res) => {
             if (checkForError(bcryptError, res)) return res.end();
             if (!result) return res.status(400).send("Email or Password is incorrect.");
             var jsonWebToken = jwt.sign({ user: foundUser._id }, process.env.JWT_SECRET, {expiresIn: '24h'});
-            res.status(200).json({token: jsonWebToken});
+            res.status(200).json({token: jsonWebToken, username: foundUser.username});
         });
     });
 }
@@ -62,7 +62,7 @@ const verifyToken = (req, res) => {
     const receivedToken = req.body.token;
     jwt.verify(receivedToken, process.env.JWT_SECRET, function(jsonWebTokenError, decoded) {
         if (jsonWebTokenError && jsonWebTokenError.name != "TokenExpiredError") return res.end();
-        if (jsonWebTokenError.name === "TokenExpiredError") return res.status(200).send("Token expired.");
+        if (jsonWebTokenError.name === "TokenExpiredError") return res.status(410).send("Token expired.");
         res.status(200).send("Token validated!");
     });
 }
