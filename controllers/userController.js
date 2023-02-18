@@ -61,8 +61,10 @@ const signIn = (req, res) => {
 const verifyToken = (req, res) => {
     const receivedToken = req.body.token;
     jwt.verify(receivedToken, process.env.JWT_SECRET, function(jsonWebTokenError, decoded) {
-        if (jsonWebTokenError && jsonWebTokenError.name != "TokenExpiredError") return res.end();
-        if (jsonWebTokenError.name === "TokenExpiredError") return res.status(410).send("Token expired.");
+        if (jsonWebTokenError) {
+            if (jsonWebTokenError.name === "TokenExpiredError") return res.status(410).send("Session expired. Please sign in again.");
+            if (jsonWebTokenError.name != "TokenExpiredError") return res.status(500).send("Something went wrong...");
+        }
         res.status(200).send("Token validated!");
     });
 }
