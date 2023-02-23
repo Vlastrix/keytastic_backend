@@ -1,7 +1,8 @@
 require('dotenv').config();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const {User} = require('../models/user.js')
+const {Keyboard} = require('../models/keyboard.js');
+const {User} = require('../models/user.js');
 
 const saltRounds = 1;
 
@@ -69,8 +70,32 @@ const verifyToken = (req, res) => {
     });
 }
 
+const addKeyboard = (req, res) => {
+    const newKeyboard = new Keyboard({
+        name: req.body.name,
+        markedFavoriteCount: req.body.markedFavoriteCount,
+        viewsCount: req.body.viewsCount,
+        brandName: req.body.brandName,
+        compatibleDevices: req.body.compatibleDevices,
+        connectionTechnology: req.body.connectionTechnology,
+        buildTypes: req.body.buildTypes,
+        size: req.body.size,
+        layouts: req.body.layouts,
+        backlight: req.body.backlight,
+        backlightDirection: req.body.backlightDirection,
+        chasisColors: req.body.chasisColors,
+        material: req.body.material,
+        switchTypes: req.body.switchTypes,
+        switchNames: req.body.switchNames,
+        keycapType: req.body.keycapType,
+    });
+    newKeyboard.save();
+    res.status(201).send('Keyboard created succesfully!');
+}
+
 module.exports = {
     signUp,
     signIn,
     verifyToken,
+    addKeyboard,
 };

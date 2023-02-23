@@ -9,15 +9,15 @@ classDiagram
         +String brandName
         +Array<String> compatibleDevices
         +String connectionTechnology
-        +String buildType
+        +Array buildTypes
         +String size
-        +String layout
-        +String backlight
+        +Array layouts
+        +Array backlights
         +String backlightDirection
-        +Array<String> availableChasisColors
+        +Array<String> chasisColors
         +String material
-        +String switchType
-        +String switchName
+        +Array switchTypes
+        +Array switchNames
         +String keycapType
     }
 ```
@@ -37,6 +37,6 @@ classDiagram
 * String backlightDirection: Specifies the keyboard backlight direction, the values can be 'north-facing' or 'south-facing'.
 * Array availableChasisColors: Specifies a list of the available chasis color of the keyboard.
 * String material: Specifies the keyboard material type, tha values can be 'Metal' or 'Plastic'.
-* String switchType: Specifies the switch type of the keyboard if it is prebuilt, the values can be 'Linear', 'Tactile' or 'Clicky'.
-* String switchName: Specifies the name of the switch if the keyboard is prebuilt.
+* Array switchTypes: Specifies the switch type of the keyboard if it is prebuilt, the values can be 'Linear', 'Tactile' or 'Clicky'.
+* Array switchNames: Specifies the name of the switch if the keyboard is prebuilt.
 * String keycapType: Specifies the keycap type if the keyboard is prebuilt, the values can be 'ABS', 'PBT', 'Double shot ABS' or 'Double shot PBT'.
