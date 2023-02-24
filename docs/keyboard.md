@@ -9,10 +9,10 @@ classDiagram
         +String brandName
         +Array<String> compatibleDevices
         +String connectionTechnology
-        +Array buildTypes
+        +Array<String> buildTypes
         +String size
-        +Array layouts
-        +Array backlights
+        +Array<String> layouts
+        +Array backlight
         +String backlightDirection
         +Array<String> chasisColors
         +String material

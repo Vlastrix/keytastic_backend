@@ -9,7 +9,7 @@ const keyboardsSchema = new mongoose.Schema({
     connectionTechnology: String,
     buildTypes: [String],
     size: String,
-    layout: String,
+    layouts: [String],
     backlight: String,
     backlightDirection: String,
     chasisColors: [String],
