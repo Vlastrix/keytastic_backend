@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const {Keyboard} = require('../models/keyboard.js');
 const {User} = require('../models/user.js');
+const {roleSchema} = require('../models/role.js');
 
 const saltRounds = 1;
 
@@ -20,7 +21,7 @@ function createUser(username, email, hashedPassword, res) {
         username: username,
         email: email,
         password: hashedPassword,
-        role: "user",
+        role: {name: "user", description: "Public User role."},
         favoriteKeyboards: [],
         isActive: true,
     });

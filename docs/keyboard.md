@@ -16,8 +16,8 @@ classDiagram
         +String backlightDirection
         +Array<String> chasisColors
         +String material
-        +Array switchTypes
-        +Array switchNames
+        +Array<String> switchTypes
+        +Array<String> switchNames
         +String keycapType
     }
 ```
