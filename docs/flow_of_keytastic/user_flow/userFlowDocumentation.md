@@ -24,8 +24,8 @@ graph LR
     P --> T(Send \n Feedback)
     P --> R(Change \n Email/Username/Password)
 ```
-
-## User Flow documentation
+# Erase this ON TOP LATER !!!!!
+# User Flow documentation
 Everytime a new account is created it starts with the role of "user". A user can view the available keyboards in the app and add a new keyboard for validation by the administrators. 
 
 ### What a user can do?

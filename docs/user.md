@@ -6,7 +6,7 @@ classDiagram
         +String username
         +String email
         +String password
-        +String role
+        +Object role
         +Array<String> favoriteKeyboards
         +Boolean isActive
     }
@@ -17,7 +17,7 @@ classDiagram
 * String username: Users username.
 * String email: User email.
 * String password: User hashed password.
-* String role: defines the user role, the values can be "user" or "admin".
+* Object role: defines the user role.
 * Array favoriteKeyboards: A list composed of keyboards class unique ids.
 * Boolean isActive: Defines if the user is able to Sign In.
 
