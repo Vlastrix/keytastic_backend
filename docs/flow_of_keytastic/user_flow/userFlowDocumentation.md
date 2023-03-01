@@ -1,30 +1,3 @@
-# User Flow
-
-```mermaid
-graph LR
-    C{is Authenticated?}
-    C -->|Yes| D[Dashboard \n screen]
-    C -->|No| E[Sign Up/In]
-    E -->|Forgot Password| Y(Password Recovery)
-    Y -->|Password Recovered| E
-    E --> D
-    D --> Z[New keyboard \n screen]
-    Z -->|Create a new \n keyboard| W(Keyboard validated \n by adminstrators)
-    D --> H[Search screen]
-    H --> I[Description view \n of the keyboard]
-    I --> F(Find it On \n button)
-    I --> G(Post a comment)
-    I --> A(Mark keyboard as favorite)
-    I --> B(Share)
-    D --> K[Favorites \n screen]
-    I --> X(Browse images of \n the keyboard)
-    K --> I
-    D --> P[Profile \n Screen]
-    P --> Q(Sign Out)
-    P --> T(Send \n Feedback)
-    P --> R(Change \n Email/Username/Password)
-```
-# Erase this ON TOP LATER !!!!!
 # User Flow documentation
 Everytime a new account is created it starts with the role of "user". A user can view the available keyboards in the app and add a new keyboard for validation by the administrators. 
 
